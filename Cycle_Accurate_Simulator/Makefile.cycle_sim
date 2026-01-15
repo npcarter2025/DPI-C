@@ -1,0 +1,22 @@
+# Makefile for Cycle-Accurate Simulator Example
+# Simple standalone simulator demonstration
+
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -Wextra -g
+
+TARGET = cycle_sim_example
+SOURCES = simple_example.cpp
+
+all: $(TARGET)
+
+$(TARGET): $(SOURCES) cycle_simulator.h
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SOURCES)
+
+run: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
+
+.PHONY: all run clean
+
